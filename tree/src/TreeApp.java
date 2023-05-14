@@ -6,6 +6,12 @@ public class TreeApp {
         tree.insert(50);    // insert 3 nodes in the tree
         tree.insert(25);
         tree.insert(75);
+        tree.insert(70);
+        tree.insert(100);
+        tree.insert(80);
+        tree.insert(65);
+        tree.insert(110);
+        tree.insert(85);
 
         Node findResult = tree.find(25);
 
@@ -27,5 +33,12 @@ public class TreeApp {
         System.out.println("\nPostorder traversal");
         // postorder traversal
         tree.postOrderTraversal(t);
+
+        System.out.println("\nMaximum Node from the BST: " + tree.findMaximumNode(t).iData);
+        System.out.println("Minimum Node from the BST: " + tree.findMinimumNode(t).iData);
+
+        tree.deleteNode(80);
+
+        tree.inOrderTraversal(tree.getTree());
     }
 }
