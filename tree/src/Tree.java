@@ -30,13 +30,16 @@ public class Tree {
         Node current = root;
 
         while (current != null) { // when root exists
+
+            // if it matches with the provided data
             if (current.iData == key) {
                 return current;
             }
 
             if (key < current.iData) {
                 current = current.left;
-            } else {
+            }
+            else {
                 current = current.right;
             }
         }
@@ -56,7 +59,8 @@ public class Tree {
         if (root == null) { // when there is no root
             root = node;
             return root;
-        } else {  // when root exists
+        }
+        else {  // when root exists
             Node current = root;
 
             while (true) {
@@ -64,14 +68,17 @@ public class Tree {
                     if (current.left == null) {
                         current.left = node;
                         return root;
-                    } else {
+                    }
+                    else {
                         current = current.left;
                     }
-                } else if (id > current.iData) { // right child
+                }
+                else if (id > current.iData) { // right child
                     if (current.right == null) {
                         current.right = node;
                         return root;
-                    } else {
+                    }
+                    else {
                         current = current.right;
                     }
                 }
@@ -197,7 +204,8 @@ public class Tree {
             if (key < current.iData) { // go left side of the BST
                 isLeftChild = true;
                 current = current.left;
-            } else {                      // go right side of the BST
+            }
+            else {                      // go right side of the BST
                 isLeftChild = false;
                 current = current.right;
             }
@@ -212,35 +220,46 @@ public class Tree {
 
             if (current == root) { // if the node is root
                 root = null; // tree is empty
-            } else if (isLeftChild) { // disconnect this left child from parent.
+            }
+            else if (isLeftChild) { // disconnect this left child from parent.
                 parent.left = null;
-            } else {                  // disconnect this right child from parent.
+            }
+            else {                  // disconnect this right child from parent.
                 parent.right = null;
             }
-        } else if (current.right == null) { // left subtree exits of deleted node
+        }
+        else if (current.right == null) { // left subtree exits of deleted node
             if (current == root) {
                 root = current.left;
-            } else if (isLeftChild) {
+            }
+            else if (isLeftChild) {
                 parent.left = current.left;
-            } else {
+            }
+            else {
                 parent.right = current.left;
             }
-        } else if (current.left == null) { // right subtree exist of deleted node
+        }
+        else if (current.left == null) { // right subtree exist of deleted node
             if (current == root) {
                 root = current.right;
-            } else if (isLeftChild) {
+            }
+            else if (isLeftChild) {
                 parent.left = current.right;
-            } else {
+            }
+            else {
                 parent.right = current.right;
             }
-        } else { // when deleted node has both children. (left subtree & right subtree)
+        }
+        else { // when deleted node has both children. (left subtree & right subtree)
             Node successorNode = getSuccessor(current);
 
             if (current == root) {
                 root = successorNode;
-            } else if (isLeftChild) {
+            }
+            else if (isLeftChild) {
                 parent.left = successorNode;
-            } else {
+            }
+            else {
                 parent.right = successorNode;
             }
 
